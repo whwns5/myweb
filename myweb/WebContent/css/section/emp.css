@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+h2 {
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+}
+
+fieldset {
+	width: 350px;
+	margin: 0px auto;
+	
+}
+
+fieldset table{
+	margin: 0px auto;
+	border-top: 2px solid green;
+	
+}

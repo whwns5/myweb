@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+body {
+	width: 680px;
+	margin: 0px auto; /* 상하 : 0px 좌우 : auto*/
+}

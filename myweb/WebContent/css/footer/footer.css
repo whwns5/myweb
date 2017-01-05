@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+footer {
+	width: 680px;
+	clear: both; /* 양쪽 속성 모두 해체*/
+}
+
+footer p {
+	text-align: center;
+}

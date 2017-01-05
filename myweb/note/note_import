@@ -1,0 +1,17 @@
+
+Calendar 클래스
+	<%@ page import="java.util.*"%>
+	
+Connection 클래스
+	<%@ import="java.sql.*"%>
+	
+	
+설계 순서
+1. DB 스키마 설계
+2. 디자인 설계 (컨텐츠 설계) (어떻게 화면에 표시할 것인가)
+3. DTO & DAO 설계
+4. Controller 작성 (징검다리)
+
+conn
+ps   => 자원 (꼭 돌려줘야 한다.)
+rs(실제 데이터를 받아오는 것이 아니라 rs를 통해 데이터베이스의 데이터를 접근할 수 있는것. 참조)

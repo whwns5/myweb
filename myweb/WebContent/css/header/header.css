@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+header {
+	width: 680px; /* 개념적인 설정 */
+}
+
+header p {
+	font-size: 15px;
+	text-align: right;
+}
+
+header h1 {
+	color: skyblue;
+	text-align: center;
+	font-size: 45px;
+	text-shadow: 5px 5px 5px darkblue;
+}
+
+header nav {
+	color: #52493f;
+	border-top: 2px solid darkblue;
+	border-bottom: 2px solid darkblue;
+}
+
+header nav li {
+	display: inline; /* 인라인 태그로 바꾼다. (li는 기본적으로 block 태그) */
+	list-style-type: none; /* 리스트 모양을 없앤다 */
+	margin-left: 50px;
+}

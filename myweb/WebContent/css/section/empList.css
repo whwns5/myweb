@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+h2{
+	text-align: center;
+	color: blue;
+}
+table{
+	margin: 0px auto;
+	border-spacing: 0px; /* 셀과 셀간의 간격을 지운다. */
+	width: 450px;
+	border-top: 2px double darkblue;
+	border-bottom: 2px double darkblue;
+}
+table thead th{
+	background: skyblue;
+}

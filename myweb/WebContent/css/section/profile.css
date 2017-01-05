@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+@CHARSET "UTF-8";
+section{
+	width: 680px;
+	
+}
+section #profileText {
+	width: 380px;
+	text-align: center;
+	background: #ff3399;
+	float: left; /* 나를 기준으로 오른쪽으로 들어온다. */
+	color: white;
+	font-size: 10px;
+}
+section #profileText h1{
+	font-size: 50px;
+}
+section #profileText h4{
+	font-size: 20px;
+	color: yellow;
+}
+
+
+section #profileTable {
+	width: 270px;
+	padding-top: 500px;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: left;
+	color: #bfbbc6;
+	font-size: 15px;
+}
+section #profileTable table{
+	border-top: 2px solid red;
+}
+#table_title{
+	text-align: center;
+	font-weight: bold;
+}
+section #profileTable table #profile_img{
+	width: 100%;
+}

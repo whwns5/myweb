@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+section {
+	width: 680px;
+}
+
+section #mainImg {
+	width: 300px;
+	float: left; /* 나를 기준으로 오른쪽으로 들어온다. */
+}
+
+section #mainImg img {
+	width: 300px;
+}
+
+section #mainMenu {
+	/*width: 380px;*/
+	float: left;
+}
