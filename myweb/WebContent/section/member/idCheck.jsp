@@ -6,22 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/myweb/css/section/member/idCheck.css">
-<%
-	
-	String result = "";
-	String checkId = "";
-	result = request.getParameter("result");
-	checkId = request.getParameter("checkId");
-
-	if(result != null && result.equals("false")){
-%>
-		<script>
-			opener.join_ok.id.value = '<%=checkId%>';
-			window.self.close();
-		</script>
-<%
-	}
-%>
 </head>
 <body>
 	<article>

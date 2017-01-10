@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/myweb/css/index.css">
-<link rel="stylesheet" type="text/css" href="/myweb/css/section/member/join.css">
+<link rel="stylesheet" type="text/css" href="/myweb/css/section/member/join.css?ver=2">
 <script>
 	function returnPage() {
 		location.href = '/myweb/index.jsp';
@@ -19,9 +19,9 @@
 <body>
 	<%@ include file="/header/header.jsp" %>
 	
-	<section>
+	<section style="background-image: url('/myweb/img/join/join_background.jpg'); background-repeat: no-repeat; background-position: center, center;">
 		<article>
-			<form class="form-container" name="join_ok" action="/myweb/section_ok/member_ok/join_ok.jsp" >
+			<form style="opacity: 0.9;" class="form-container" name="join_ok" action="/myweb/section_ok/member_ok/join_ok.jsp" >
 				<div class="form-title"><h2>회원 가입</h2></div>
 				
 				<div class="form-title">아이디</div>

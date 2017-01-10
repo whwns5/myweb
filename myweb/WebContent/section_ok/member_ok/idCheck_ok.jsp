@@ -15,7 +15,8 @@
 %>
 		<script>
 			window.alert('<%=id%>는 사용 가능한 ID 입니다.');
-			location.href = '/myweb/section/member/idCheck.jsp?result=false&checkId=<%=id%>';
+			opener.join_ok.id.value = '<%=id%>';
+			window.self.close();
 		</script>	
 <%
 	}

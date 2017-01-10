@@ -1,5 +1,7 @@
 package yong.member;
 
+import java.sql.*;
+
 public class MemberDTO {
 	private int idx;
 	private String id;
@@ -8,6 +10,7 @@ public class MemberDTO {
 	private String tel;
 	private String addr;
 	private String joindate;
+	// private Date joindate;
 	
 	public MemberDTO() {
 		// TODO Auto-generated constructor stub

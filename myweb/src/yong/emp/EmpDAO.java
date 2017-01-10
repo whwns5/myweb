@@ -3,6 +3,12 @@ package yong.emp;
 import java.sql.*;
 import java.util.*;
 
+import javax.sql.*;
+
+import yong.db.yongDB;
+
+import javax.naming.*;
+
 public class EmpDAO {
 	
 	private Connection conn;
@@ -12,9 +18,10 @@ public class EmpDAO {
 	public EmpDAO() {
 		// TODO Auto-generated constructor stub
 		System.out.println("EmpDAO객체 생성됨!");
-		dbConnect();
+		//dbConnect();
 	}
 	
+	/*
 	public void dbConnect(){
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -27,12 +34,19 @@ public class EmpDAO {
 			e.printStackTrace();
 		}
 	}
+	*/
 	
 	/** 사원 등록 관련 메서드 */
 	public int empAdd(EmpDTO dto){
 		
 		try {
 		
+//			Context initContext = new InitialContext();
+//			Context envContext  = (Context)initContext.lookup("java:/comp/env");
+//			DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
+//			conn = ds.getConnection();
+			conn = yongDB.getConn();
+			
 			String sql = "INSERT INTO employee VALUES(employee_idx.NEXTVAL, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -60,7 +74,8 @@ public class EmpDAO {
 	public int empDel(EmpDTO dto){
 		
 		try{
-		
+			conn = yongDB.getConn();
+			
 			String sql = "DELETE FROM employee WHERE name = ?";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -89,6 +104,7 @@ public class EmpDAO {
 		ArrayList<Object> arrayEdto = new ArrayList<Object>();
 		
 		try{
+			conn = yongDB.getConn();
 			
 			String sql = "SELECT * FROM employee ORDER BY idx DESC";
 			
@@ -137,6 +153,8 @@ public class EmpDAO {
 		EmpDTO inputDTO = null;
 		
 		try{
+			conn = yongDB.getConn();
+			
 			if(dto instanceof EmpDTO){
 				inputDTO = (EmpDTO) dto;
 			}
@@ -178,6 +196,8 @@ public class EmpDAO {
 		EmpDTO resultDTO = null;
 		
 		try {
+			conn = yongDB.getConn();
+			
 			if(dto instanceof EmpDTO){
 				inputDTO = (EmpDTO) dto;
 			}
@@ -217,6 +237,8 @@ public class EmpDAO {
 		EmpDTO inputDTO = null;
 		
 		try {
+			conn = yongDB.getConn();
+			
 			if(dto instanceof EmpDTO){
 				inputDTO = (EmpDTO) dto;
 			}
