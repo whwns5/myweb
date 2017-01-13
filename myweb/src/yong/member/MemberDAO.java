@@ -7,9 +7,14 @@ import yong.db.yongDB;
 import yong.emp.EmpDTO;
 
 public class MemberDAO {
-	Connection conn;
-	PreparedStatement pstmt;
-	ResultSet rs;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	public static final int NOT_ID = 1;
+	public static final int NOT_PWD = 2;
+	public static final int LOGIN_OK = 3;
+	public static final int ERROR = -1;
 	
 	public MemberDAO() {
 		// TODO Auto-generated constructor stub
@@ -171,17 +176,18 @@ public class MemberDAO {
 				rsPwd = rs.getString("pwd"); // 해당 아이디의 패스워드를 가져온다.
 				
 				if(pwd.equals(rsPwd)){ // 사용자가 입력한 pwd와 데이터 베이스의 pwd가 일치할 경우
-					return 3; // 3 -> 아이디와 패스워드가 모두 일치 합니다.
+					return LOGIN_OK; // 3 -> 아이디와 패스워드가 모두 일치 합니다.
 				} else {
-					return 2; // 2 -> 아이디는 일치하지만 패스워드가 틀립니다.
+					return NOT_PWD; // 2 -> 아이디는 일치하지만 패스워드가 틀립니다.
 				}
 				
 			} else {
-				return 1; // 1 -> 해당 ID가 존재하지 않습니다.
+				return NOT_ID; // 1 -> 해당 ID가 존재하지 않습니다.
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return ERROR;
 		} finally {
 			try {
 				if(rs!=null)rs.close();
@@ -191,14 +197,13 @@ public class MemberDAO {
 				e2.printStackTrace();
 			}
 		}
-		return 0;
+		
 	}
 	
 	/** 회원이름 정보도출 관련 메서드 */
 	public String getUserInfo(String id){
 		
 		String sql = "";
-		String name = "";
 		
 		try {
 			conn = yongDB.getConn();
@@ -210,12 +215,13 @@ public class MemberDAO {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()){
-				name = rs.getString("name");
-			}
+			rs.next();
 			
+			return rs.getString("name");
+	
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		} finally {
 			try {
 				if(rs!=null)rs.close();
@@ -225,8 +231,6 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		
-		return name;
 	}
 
 }

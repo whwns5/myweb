@@ -11,7 +11,7 @@
 <body style="background-image: url('/myweb/img/join/login_background.ico'); background-repeat: no-repeat; background-position: center, center;">
 	<section>
 	<article>
-		<form style="opacity: 0.9;" class="form-container" name="login_ok" action="/myweb/section/member/login_ok.jsp">
+		<form style="opacity: 0.9;" class="form-container" name="login_ok" action="/myweb/section/member/login_ok.jsp" method="post">
 			<div class="form-title"> <h2>로그인</h2> </div>
 			<div class="form-title">ID</div>
 			<%
@@ -26,10 +26,10 @@
 					}
 				}
 			%>
-			<input class="form-field" type="text" name="id" value="<%=saveId%>">
+			<input class="form-field" type="text" name="id" value="<%=saveId%>" placeholder="아이디">
 			<div class="form-title">PWD</div>
-			<input class="form-field" type="text" name="pwd">
-			<input class="form-title" type="checkbox" name="cbSavaId" value="on">ID 기억
+			<input class="form-field" name="pwd" placeholder="비밀번호" type="password">
+			<input class="form-title" type="checkbox" name="cbSavaId" value="on" <%=saveId.equals("") ? "" : "checked"%>>ID 기억
 			<div class="submit-container">
  				<input class="submit-button" type="submit" value="로그인">
 			</div>

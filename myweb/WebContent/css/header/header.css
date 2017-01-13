@@ -2,7 +2,13 @@
 header {
 	width: 680px; /* 개념적인 설정 */
 }
-
+header div{
+	/*
+	background-image: url("/myweb/img/gif_gengi.gif");
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	*/
+}
 header p {
 	font-size: 15px;
 	text-align: right;

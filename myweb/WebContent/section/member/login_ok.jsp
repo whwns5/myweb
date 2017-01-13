@@ -5,6 +5,8 @@
 <jsp:setProperty property="*" name="mdto"/>
 <jsp:useBean id="mdao" class="yong.member.MemberDAO"/>
 <%
+	request.setCharacterEncoding("utf-8");
+
 	int login_result = mdao.loginCheck(mdto.getId(), mdto.getPwd());
 
 	switch (login_result) {
@@ -33,7 +35,7 @@
 		String cbSaveId = request.getParameter("cbSavaId");
 		if(cbSaveId != null && cbSaveId.equals("on")){ // ID 기억 체크시
 			Cookie ck1 = new Cookie("saveId", URLEncoder.encode(mdto.getId()) );
-			ck1.setMaxAge(60*60*24);
+			ck1.setMaxAge(60*60*24*30);
 			response.addCookie(ck1);
 		} else {
 			Cookie ck1 = new Cookie("saveId", "" );
