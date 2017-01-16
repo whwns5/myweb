@@ -128,7 +128,7 @@ table{
 							for(int i = 0 ; i < arryUserFileDTO.size() ; i++){
 								String crPath = arryUserFileDTO.get(i).getCrPath();
 								String fileName = arryUserFileDTO.get(i).getFileName();
-								boolean isDirectory = arryUserFileDTO.get(i).isDirectory();
+								boolean isDirectory = true;//arryUserFileDTO.get(i).isDirectory();
 								
 								String tempTag = "";
 								tempTag += "<a href='/myweb/section/wf/webFolder.jsp?path=" + crPath + "/" + fileName + "'>" + fileName + "</a>";

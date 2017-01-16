@@ -1,0 +1,17 @@
+
+CREATE TABLE JSP_bbs(
+	idx NUMBER(4) PRIMARY KEY,
+	writer VARCHAR2(20),
+	pwd VARCHAR2(40),
+	subject VARCHAR2(300),
+	content VARCHAR2(4000),
+	writedate DATE,
+	readnum NUMBER(4),
+	ref NUMBER(4),
+	lev NUMBER(4),
+	sunbun NUMBER(4)
+);
+
+CREATE SEQUENCE JSP_bbs_idx MINVALUE 0 START WITH 1
+DROP SEQUENCE JSP_bbs_idx;
+CREATE SEQUENCE JSP_bbs_idx MINVALUE 0 START WITH 1
