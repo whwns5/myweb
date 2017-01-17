@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css" href="/myweb/css/header/header.css?ver=2">
+<link rel="stylesheet" type="text/css" href="/myweb/css/header/header.css?ver=3">
 <script>
 function loginOpen() {
 	window.open('/myweb/section/member/login.jsp', 'login', 'width=400,height=335,left=600,top=400');
@@ -34,6 +34,7 @@ function logOut() {
 			<li><a href="/myweb/section/home.jsp">HOME</a></li>
 			<li><a href="/myweb/section/profile.jsp">Profile</a></li>
 			<li><a href="/myweb/section/bbs/bbsList.jsp">BBS</a></li>
+			<li><a href="/myweb/section/bbs/bbsList_t.jsp">BBS2</a></li>
 			<li><a href="/myweb/section/wf/webFolder.jsp">WebFolder</a></li>
 			<li><a href="/myweb/section/wf/webFolder2.jsp">WebFolder2</a></li>
 			<li><a href="#">GuestBook</a></li>

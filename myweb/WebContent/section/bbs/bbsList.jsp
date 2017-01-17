@@ -114,7 +114,7 @@
 					%>
 								<a class="aRed" href="/myweb/section/bbs/bbsList.jsp?currentPage=<%=i%>&currentPageDept=<%=currentPageDept%>">[<%=i%>]</a>
 					<%
-								} 
+								}
 							}
 							
 							if( (currentPageDept+1)*5 < totalPage ) {
