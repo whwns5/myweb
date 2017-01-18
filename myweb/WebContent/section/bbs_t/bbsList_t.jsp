@@ -29,7 +29,7 @@ table th{
 <%
 	int totalCnt = bdao_t.getTotalCnt(); // 총 게시물 수
 	//System.out.println(bdao_t.getTotalCnt());
-	int listSize = 5; // 보여줄 리스트 수
+	int listSize = 10; // 보여줄 리스트 수
 	int pageSize = 5; // 보여줄 페이지 수
 	String cp_s = request.getParameter("cp");
 	if(cp_s == null || cp_s.equals("")){
@@ -52,10 +52,10 @@ table th{
 			<table>
 				<thead>
 					<tr>
-						<th>순번</th>
+						<th>번호</th>
 						<th>제목</th>
 						<th>작성자</th>
-						<th>조회수</th>
+						<th>조회</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -71,8 +71,28 @@ table th{
 						for(int i = 0 ; i < arr.size() ; i++){			
 				%>		
 							<tr>
-								<td><%=arr.get(i).getIdx() %></td>
-								<td><a href="/myweb/section/bbs/bbsContent_t.jsp?idx=<%=arr.get(i).getIdx() %>"><%=arr.get(i).getSubject() %></a></td>
+								<td>
+								<% 
+									if(arr.get(i).getLev() == 0){
+								%>
+										 <%=arr.get(i).getIdx() %>
+								<%
+									}
+								%>
+								</td>
+								<td>
+								<%
+									for(int z = 0 ; z < arr.get(i).getLev() ; z++){
+										out.println("&nbsp;");
+									}
+								
+									if(arr.get(i).getLev() != 0){
+								%>
+										<img src="/myweb/img/bbs/ioc_reply.gif">
+								<%
+									}
+								%>
+								<a href="/myweb/section/bbs_t/bbsContent_t.jsp?idx=<%=arr.get(i).getIdx() %>&cp=<%=cp%>"><%=arr.get(i).getSubject() %></a></td>
 								<td><%=arr.get(i).getWriter() %></td>
 								<td><%=arr.get(i).getReadnum() %></td>
 							</tr>
@@ -87,25 +107,33 @@ table th{
 						<%
 						if(userGroup != 0){ // 현재 그룹이 첫 페이지 그룹이 아닌 경우
 						%>
-							<a href="/myweb/section/bbs/bbsList_t.jsp?cp=<%= (userGroup-1)*pageSize + pageSize %>">&lt;&lt;</a>
+							<a href="/myweb/section/bbs_t/bbsList_t.jsp?cp=<%= (userGroup-1)*pageSize + pageSize %>">&lt;&lt;</a>
+						<%
+						} else {
+						%>
+							<a href="#">이전</a>
 						<%
 						}
 						
 						for(int i = (userGroup * pageSize) + 1 ; i <= (userGroup * pageSize) + pageSize ; i++){
 						%>
-							&nbsp;&nbsp;<a href="/myweb/section/bbs/bbsList_t.jsp?cp=<%=i%>"><%=i%></a>&nbsp;&nbsp;
+							&nbsp;&nbsp;<a href="/myweb/section/bbs_t/bbsList_t.jsp?cp=<%=i%>"><%=i%></a>&nbsp;&nbsp;
 						<%
 							if(i == totalPage)break;
 						}
 						
 						if(userGroup != (totalPage / pageSize) - (totalPage % pageSize == 0 ? 1 : 0)){ // 현재 그룹이 마지막 페이지가 해당하는 그룹에 해당되지 않는 경우
 						%>
-							<a href="/myweb/section/bbs/bbsList_t.jsp?cp=<%= ((userGroup+1)*pageSize) + 1 %>">&gt;&gt;</a>
+							<a href="/myweb/section/bbs_t/bbsList_t.jsp?cp=<%= ((userGroup+1)*pageSize) + 1 %>">다음</a>
+						<%
+						} else {
+						%>
+							<a href="#">다음</a>
 						<%
 						}
 						%>
 						</td>
-						<td><a href="/myweb/section/bbs/bbsWrite_t.jsp">글쓰기</a></td>
+						<td><a href="/myweb/section/bbs_t/bbsWrite_t.jsp">글쓰기</a></td>
 					</tr>
 				</tfoot>
 			</table>

@@ -3,6 +3,7 @@
 <%@ page import="yong.bbs.*" %>
 <jsp:useBean id="bdao_t" class="yong.bbs.BbsDAO_t" scope="session"/>
 <%
+	String cp = request.getParameter("cp");
 	String idx_s = request.getParameter("idx");
 	if(idx_s == null || idx_s.equals("")){
 		idx_s = "0";
@@ -31,35 +32,37 @@
 	<%@ include file="/header/header.jsp" %>
 	<section>
 		<article>
-			<h2>자유게시판 본문</h2>
-			<table border="1" bordercolor="blue" width="550" cellspacing="0">
-				<tr>
-					<th>번호</th>
-					<td><%=dto_t.getIdx() %></td>
-					<th>작성날짜</th>
-					<td><%=dto_t.getWritedate() %></td>
-				</tr>
+			<h2>수정하기</h2>
+			<form name="bbsUpdate" action="/myweb/section/bbs_t/bbsUpdate_ok.jsp">
+			<input type="hidden" name="cp" value="<%=cp%>">
+			<input type="hidden" name="idx" value="<%=dto_t.getIdx()%>">
+			<table>
 				<tr>
 					<th>작성자</th>
-					<td><%=dto_t.getWriter() %></td>
-					<th>조회수</th>
-					<td><%=dto_t.getReadnum() %></td>
+					<td><input type="text" name="writer" readonly="readonly" value="<%=dto_t.getWriter()%>"></td>
+					<th>비밀번호</th>
+					<td><input type="password" name="pwd" readonly="readonly" value="<%=dto_t.getPwd()%>"></td>
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td colspan="3" align="left"><%=dto_t.getSubject()%></td>
+					<td colspan="3" align="left">
+						<input type="text" name="subject" required="required" value="<%=dto_t.getSubject()%>">
+					</td>
 				</tr>
-				<tr height="250px">
-					<td colspan="4" align="left" valign="top">
-					 	<!-- <pre> --><%=dto_t.getContent().replaceAll("\n", "<br>")%><!-- </pre> -->
-					 </td>
+				<tr>
+					<td colspan="4">
+						<textarea rows="15" cols="50" name="content" required="required"><%=dto_t.getContent()%></textarea>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="4" align="center">
-						목록보기
+						<input type="submit" value="수정완료">
+						<input type="reset" value="다시작성">
 					</td>
-				</tr>
+		 		</tr>
 			</table>
+				
+			</form>
 		</article>
 	</section>
 	<%@ include file="/footer/footer.jsp" %>

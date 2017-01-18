@@ -34,7 +34,7 @@ function logOut() {
 			<li><a href="/myweb/section/home.jsp">HOME</a></li>
 			<li><a href="/myweb/section/profile.jsp">Profile</a></li>
 			<li><a href="/myweb/section/bbs/bbsList.jsp">BBS</a></li>
-			<li><a href="/myweb/section/bbs/bbsList_t.jsp">BBS2</a></li>
+			<li><a href="/myweb/section/bbs_t/bbsList_t.jsp">BBS_t</a></li>
 			<li><a href="/myweb/section/wf/webFolder.jsp">WebFolder</a></li>
 			<li><a href="/myweb/section/wf/webFolder2.jsp">WebFolder2</a></li>
 			<li><a href="#">GuestBook</a></li>

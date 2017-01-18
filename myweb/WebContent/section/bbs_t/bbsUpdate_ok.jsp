@@ -4,10 +4,11 @@
 <jsp:setProperty property="*" name="bdto_t"/>
 <jsp:useBean id="bdao_t" class="yong.bbs.BbsDAO_t" scope="session"/>
 <%
-	int result = bdao_t.bbsWrite(bdto_t);
-	String msg = result > 0 ? "게시글 등록완료 !" : "게시글 등록 실패 !";
+	String cp = request.getParameter("cp");
+	int result = bdao_t.bbsUpdate(bdto_t);
+	String msg = result > 0 ? "게시글 수정 완료 !" : "게시글 수정 실패 !";
 %>
 <script>
 	window.alert('<%=msg%>');
-	location.href = '/myweb/section/bbs/bbsList_t.jsp';
+	location.href = '/myweb/section/bbs_t/bbsList_t.jsp?cp=<%=cp%>';
 </script>
