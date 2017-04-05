@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="/myweb/css/section/member/result.css">
 <%
 	request.setCharacterEncoding("utf-8");
+
+	
 	String fkey = request.getParameter("fkey");
 	String fvalue = request.getParameter("fvalue");
 	ArrayList<Object> arrayResult = null;

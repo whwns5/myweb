@@ -38,7 +38,7 @@
 			ck1.setMaxAge(60*60*24*30);
 			response.addCookie(ck1);
 		} else {
-			Cookie ck1 = new Cookie("saveId", "" );
+			Cookie ck1 = new Cookie("saveId","");
 			ck1.setMaxAge(0);
 			response.addCookie(ck1);
 		}

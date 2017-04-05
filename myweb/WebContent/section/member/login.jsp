@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/myweb/css/section/member/login.css?ver=2">
+<script>
+
+</script>
 </head>
 <body style="background-image: url('/myweb/img/join/login_background.ico'); background-repeat: no-repeat; background-position: center, center;">
 	<section>
